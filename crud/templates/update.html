@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container mt-3">
+    <h4>Update</h4>
+    <hr>
+    <form action="/update/{{s.id}}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input type="text" class="form-control" name="First_Name" value="{{s.First_Name}}">
+        </div>
+        <div class="form-group">
+            <label for="">Last Name</label>
+            <input type="text" class="form-control" name="Last_Name" value="{{s.Last_Name}}">
+        </div>
+        <div class="form-group">
+            <label for="">Father Name</label>
+            <input type="text" class="form-control" name="Father_Name" value="{{s.Father_Name}}">
+        </div>
+        <div class="form-group">
+            <label for="">Mother Name</label>
+            <input type="text" class="form-control" name="Mother_Name" value="{{s.Mother_Name}}">
+        </div>
+        <div class="form-group">
+            <label for="">Date of Birth</label>
+            <input type="date" class="form-control" name="Date_of_birth" value="{{s.Date_of_birth}}">
+        </div>
+        <div class="form-group">
+            <label for="">Gender</label>
+            <input type="text" class="form-control" name="Gender" value="{{s.Gender}}">
+        </div>
+        <div class="form-group">
+            <label for="">About</label>
+            <input type="text" class="form-control" name="About" value="{{s.About}}">
+        </div>
+
+        
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Update Record</button>
+            <a href="{% url 'show' %}" class="btn btn-info">Show Details</a>
+
+        </div>
+    </form>
+</div>
+
+{% endblock content %} 

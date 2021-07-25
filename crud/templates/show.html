@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container mt-3">
+    <h4>Details</h4>
+    <a href="{% url 'add' %}" class="btn btn-sm btn-info">Add New</a>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Father Name</th>
+                <th>Mother Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>About</th>
+            </tr>
+            <tbody>
+                {%for a in s %}
+                <tr>
+                    <td>{{a.First_Name }}</td>
+                    <td>{{a.Last_Name }}</td>
+                    <td>{{a.Father_Name }}</td>
+                    <td>{{a.Mother_Name }}</td>
+                    <td>{{a.Date_of_birth }}</td>
+                    <td>{{a.Gender }}</td>
+                    <td>{{a.about }}</td>  
+                    <td>
+                        <a href="update/{{a.id}}" class="btn btn-sm btn-info">Edit</a>
+                        <a href="delete/{{a.id}}" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="education/{{a.id}}" class="btn btn-sm btn-info">Education Details</a>
+
+                    </td>  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
+    
+</div>
+
+{% endblock content %}
